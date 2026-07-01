@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fetuccini Task Manager</title>
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Fetuccini ops</p>
+        <h1>Tasks with a little sparkle and no chaos.</h1>
+        <p class="muted">Plan the day, mark the wins, and keep the dashboard calm.</p>
+      </div>
+      <div class="stats" aria-live="polite">
+        <span><strong id="totalCount">0</strong>Total</span>
+        <span><strong id="doneCount">0</strong>Done</span>
+        <span><strong id="pendingCount">0</strong>Pending</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <form id="taskForm" class="task-form">
+        <label>
+          <span>Task</span>
+          <input id="taskTitle" name="title" maxlength="80" placeholder="Write the next tiny quest" required>
+        </label>
+        <label>
+          <span>Due</span>
+          <input id="taskDue" name="dueDate" type="date">
+        </label>
+        <label>
+          <span>Priority</span>
+          <select id="taskPriority" name="priority">
+            <option value="normal">Normal</option>
+            <option value="focus">Focus</option>
+            <option value="royal">Royal</option>
+          </select>
+        </label>
+        <button class="primary" type="submit">Add task</button>
+      </form>
+      <p id="message" class="message" role="status"></p>
+    </section>
+
+    <section class="toolbar" aria-label="Task filters">
+      <button class="filter active" data-filter="all">All</button>
+      <button class="filter" data-filter="pending">Pending</button>
+      <button class="filter" data-filter="completed">Completed</button>
+    </section>
+
+    <section id="taskList" class="task-list" aria-live="polite"></section>
+  </main>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
